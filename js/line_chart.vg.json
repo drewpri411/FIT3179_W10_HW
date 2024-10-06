@@ -2,8 +2,9 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Migration Arrivals by Continent and Country",
     "width": "container",
+    "height": 400,
     "data": {
-      "url": "path/to/arrivals_soe_with_continent.csv", 
+      "url": "https://raw.githubusercontent.com/drewpri411/FIT3179_W10_HW/main/data/arrivals_soe_with_continent.csv", 
       "format": {
         "type": "csv"
       }
@@ -70,11 +71,11 @@
           "title": "Date"
         },
         {
-          "field": "arrivals",
-          "type": "quantitative",
-          "title": "Arrivals"
-        }
-      ]
+            "field": "arrivals",
+            "type": "quantitative",
+            "title": "Arrivals"
+          }
+        ]
+      }
     }
-  }
   

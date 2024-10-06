@@ -2,11 +2,10 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Migration to Malaysia Per 1,000 People (2020-2024)",
   "width": "container",
-  "height": "container",
+  "height": 400,
   "projection": {"type": "equalEarth"},
   "layer": [
     {
-      
       "data": {
         "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
         "format": {"type": "topojson", "feature": "oceans"}
@@ -14,7 +13,6 @@
       "mark": {"type": "geoshape", "fill": "skyblue"}
     },
     {
-      
       "data": {
         "url": "https://raw.githubusercontent.com/drewpri411/FIT3179_W9_HW/main/js/ne_110m_new.topojson",
         "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
@@ -55,13 +53,12 @@
             "field": "MigrationPer1000",
             "type": "quantitative",
             "title": "Migration Per 1,000 People",
-            "format": ",.0f"  
+            "format": ",.0f"
           }
         ]
       }
     },
     {
-
       "data": {
         "url": "https://raw.githubusercontent.com/drewpri411/FIT3179_W9_HW/main/js/ne_110m_new.topojson",
         "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
