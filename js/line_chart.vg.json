@@ -1,0 +1,78 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Migration to Malaysia Per 1,000 People (2020-2024)",
+    "width": "container",
+    "height": "container",
+    "data": {
+      "url": "https://raw.githubusercontent.com/drewpri411/FIT3179_W10_HW/main/data/normalized_arrivals_with_continent.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "params": [
+      {
+        "name": "Continent_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Asia",
+            "Europe",
+            "Africa",
+            "Americas",
+            "Oceania"
+          ],
+          "labels": [
+            "Show All",
+            "Asia",
+            "Europe",
+            "Africa",
+            "Americas",
+            "Oceania"
+          ],
+          "name": "Continent Selection: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+      }
+    ],
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "temporal",
+        "title": "Year"
+      },
+      "y": {
+        "field": "ArrivalsPer1000",
+        "type": "quantitative",
+        "title": "Arrivals Per 1,000 People"
+      },
+      "color": {
+        "field": "country",
+        "type": "nominal",
+        "title": "Country"
+      },
+      "tooltip": [
+        {
+          "field": "country",
+          "type": "nominal",
+          "title": "Country"
+        },
+        {
+          "field": "Year",
+          "type": "temporal",
+          "title": "Year"
+        },
+        {
+          "field": "ArrivalsPer1000",
+          "type": "quantitative",
+          "title": "Arrivals Per 1,000 People"
+        }
+      ]
+    }
+  }
+  
