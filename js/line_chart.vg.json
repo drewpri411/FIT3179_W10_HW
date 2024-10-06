@@ -4,7 +4,7 @@
     "width": "container",
     "height": 400,
     "data": {
-      "url": "https://raw.githubusercontent.com/drewpri411/FIT3179_W10_HW/main/data/arrivals_soe_with_continent.csv",
+      "url": "https://raw.githubusercontent.com/drewpri411/FIT3179_W10_HW/main/data/updated_arrivals_soe_with_monthly_totals.csv",
       "format": {
         "type": "csv"
       }
@@ -61,7 +61,8 @@
         "axis": { "tickCount": 7 },
         "scale": {
           "type": "log",
-          "domain": [1, 10000000]
+          "domain": [1, 10000000],
+          "clamp":true
         }
       },
       "color": {
