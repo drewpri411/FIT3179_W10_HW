@@ -4,7 +4,7 @@
     "width": "container",
     "height": 400,
     "data": {
-      "url": "https://raw.githubusercontent.com/drewpri411/FIT3179_W10_HW/main/data/arrivals_soe_with_continent.csv", 
+      "url": "https://raw.githubusercontent.com/drewpri411/FIT3179_W10_HW/main/data/arrivals_soe_with_continent.csv",
       "format": {
         "type": "csv"
       }
@@ -14,34 +14,39 @@
         "name": "Continent_selection",
         "bind": {
           "input": "select",
-          "options": [
-            null,
-            "Asia",
-            "Europe",
-            "Africa",
-            "Americas",
-            "Oceania"
-          ],
-          "labels": [
-            "Show All",
-            "Asia",
-            "Europe",
-            "Africa",
-            "Americas",
-            "Oceania"
-          ],
+          "options": [null, "Asia", "Europe", "Africa", "Americas", "Oceania"],
+          "labels": ["Show All", "Asia", "Europe", "Africa", "Americas", "Oceania"],
           "name": "Continent Selection: "
         }
+      },
+      {
+        "name": "Year_selection",
+        "bind": {
+          "input": "range",
+          "min": 2020,
+          "max": 2024,
+          "step": 1,
+          "name": "Select Year: "
+        },
+        "value": 2022
       }
     ],
     "transform": [
       {
         "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+      },
+      {
+        "calculate": "year(datum.date)",
+        "as": "Year"
+      },
+      {
+        "filter": "datum.Year == Year_selection"
       }
     ],
     "mark": {
       "type": "line",
-      "interpolate": "monotone"
+      "point": true, 
+      "interpolate": "monotone" 
     },
     "encoding": {
       "x": {
@@ -50,9 +55,14 @@
         "title": "Date"
       },
       "y": {
-        "field": "arrivals",
+        "field": "arrivals_monthly_total",
         "type": "quantitative",
-        "title": "Arrivals"
+        "title": "Monthly Arrivals",
+        "axis": { "tickCount": 7 },
+        "scale": {
+          "type": "log",
+          "domain": [1, 10000000]
+        }
       },
       "color": {
         "field": "country",
@@ -71,11 +81,11 @@
           "title": "Date"
         },
         {
-            "field": "arrivals",
-            "type": "quantitative",
-            "title": "Arrivals"
-          }
-        ]
-      }
+          "field": "arrivals_monthly_total",
+          "type": "quantitative",
+          "title": "Monthly Arrivals"
+        }
+      ]
     }
+  }
   
